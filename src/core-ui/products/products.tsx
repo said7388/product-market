@@ -10,12 +10,13 @@ import {
   Typography,
 } from "@mui/material";
 import * as React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectProducts,
+  updateProducts,
+} from "../../redux/features/product-slice";
+import { ProductType, SortingType } from "../../types";
 import ProductCard from "../card/product-card";
-
-interface SortingType {
-  title: string;
-  value: string;
-}
 
 // Sort JSON data
 const sortProducts: SortingType[] = [
@@ -45,11 +46,64 @@ const sortProducts: SortingType[] = [
   },
 ];
 
-function Products({ products, page, setPage }: any) {
-  const [age, setAge] = React.useState("");
+function Products({ page, setPage }: any) {
+  const [sort, setSort] = React.useState("");
+  const dispatch = useDispatch();
+  const products = useSelector(selectProducts);
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value);
+    const temp = JSON.parse(JSON.stringify(products));
+    // switch case for update
+    switch (event.target.value) {
+      case "low_price":
+        dispatch(
+          updateProducts(
+            temp.sort((a: ProductType, b: ProductType) => a.price - b.price),
+          ),
+        );
+        break;
+      case "high_price":
+        dispatch(
+          updateProducts(
+            temp.sort((a: ProductType, b: ProductType) => b.price - a.price),
+          ),
+        );
+        break;
+      case "review":
+        dispatch(
+          updateProducts(
+            temp.sort((a: ProductType, b: ProductType) => b.rating - a.rating),
+          ),
+        );
+        break;
+      case "new":
+        // products.sort((a, b) => b.createdAt - a.createdAt);
+        break;
+      case "polygon_low_price":
+        dispatch(
+          updateProducts(
+            temp.sort(
+              (a: ProductType, b: ProductType) => a.polygon - b.polygon,
+            ),
+          ),
+        );
+        break;
+      case "polygon_high_price":
+        dispatch(
+          updateProducts(
+            temp.sort(
+              (a: ProductType, b: ProductType) => b.polygon - a.polygon,
+            ),
+          ),
+        );
+        break;
+      default:
+        // products.sort((a, b) => b.createdAt - a.createdAt);
+        break;
+    }
+
+    console.log(event.target.value);
+    setSort(event.target.value);
   };
 
   return (
@@ -62,14 +116,16 @@ function Products({ products, page, setPage }: any) {
           <InputLabel id='demo-select-small-label'>Sort by featured</InputLabel>
           <Select
             labelId='demo-select-small-label'
-            value={age}
+            value={sort}
             label='Sort by featured'
             onChange={handleChange}>
             <MenuItem value='' disabled>
               Featured
             </MenuItem>
-            {sortProducts.map((item: SortingType) => (
-              <MenuItem value={item.value}>{item.title}</MenuItem>
+            {sortProducts.map((item: SortingType, index: number) => (
+              <MenuItem key={index} value={item.value}>
+                {item.title}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>

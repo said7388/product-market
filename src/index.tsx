@@ -6,8 +6,10 @@ import {
 } from "@mui/material/styles";
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
 import App from "./app";
 import "./index.css";
+import { store } from "./redux/store";
 import reportWebVitals from "./reportWebVitals";
 
 const rootElement = document.getElementById("root");
@@ -33,10 +35,12 @@ const theme = createTheme({
 root.render(
   <React.StrictMode>
     <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <App />
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <App />
+        </ThemeProvider>
+      </Provider>
     </StyledEngineProvider>
   </React.StrictMode>,
 );
