@@ -24,8 +24,8 @@ function Products({ page, setPage }: any) {
   }, [filters, dispatch]);
 
   return (
-    <div className='p-2 px-3 sm:px-5'>
-      <div className='flex justify-between items-center mb-5'>
+    <div className='p-2 px-3 sm:px-5 w-full'>
+      <div className='flex justify-between items-center mb-5 w-full'>
         <Typography variant='h5' gutterBottom>
           All Items
         </Typography>
@@ -39,12 +39,14 @@ function Products({ page, setPage }: any) {
           ))}
       </div>
       <div className='flex justify-center my-3'>
-        <Pagination
-          size='large'
-          onChange={(_, p) => setPage(p)}
-          count={Math.ceil(products.length / 12)}
-          shape='rounded'
-        />
+        {products.length > 0 && (
+          <Pagination
+            size='large'
+            onChange={(_, p) => setPage(p)}
+            count={Math.ceil(products.length / 12)}
+            shape='rounded'
+          />
+        )}
       </div>
     </div>
   );

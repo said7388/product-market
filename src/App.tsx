@@ -1,11 +1,13 @@
 import * as React from "react";
-import Homepage from "./container/homepage";
-import MainLayout from "./layout/main-layout";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Homepage from "./pages/homepage";
 
 export default function App() {
   return (
-    <MainLayout>
-      <Homepage />
-    </MainLayout>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Homepage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
