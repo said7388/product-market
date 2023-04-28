@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import products from "../../assets/data/products.json";
 import { ProductState, ProductType } from "../../types";
+import products from "../../utils/data/products.json";
 
 export const productSlice = createSlice({
   name: "product",

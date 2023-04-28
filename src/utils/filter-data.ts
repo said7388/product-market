@@ -12,11 +12,13 @@ export const supportsFilter = [
 export const contentsFilter = [
   {
     label: "VRChat(Quest)",
-    value: "quest",
+    value: "Quest",
+    color: "#75DE73",
   },
   {
     label: "VRChat(PCVR)",
-    value: "pcvr",
+    value: "PCVR",
+    color: "#3CD4F5",
   },
   {
     label: "Others",

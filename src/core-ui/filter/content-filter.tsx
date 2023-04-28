@@ -12,7 +12,6 @@ import {
   updateContentFilter,
   updateContentFilterRemove,
 } from "../../redux/features/product-slice";
-import { contentsFilter } from "../../utils/filter-data";
 
 function ContentFilter() {
   const dispatch = useDispatch();
@@ -31,20 +30,53 @@ function ContentFilter() {
         Content
       </Typography>
       <FormGroup sx={{ pl: 2 }}>
-        {contentsFilter.map((content) => (
-          <FormControlLabel
-            key={content.value}
-            control={
-              <Checkbox
-                className='py-[3px]'
-                size='small'
-                onChange={handleChange}
-                name={content.value}
-              />
-            }
-            label={<p className='text-sm p-0 m-0'>{content.label}</p>}
-          />
-        ))}
+        <FormControlLabel
+          control={
+            <Checkbox
+              className='py-[3px]'
+              size='small'
+              onChange={handleChange}
+              name='Quest'
+            />
+          }
+          label={
+            <p className='text-sm p-0 m-0 flex items-center gap-[6px]'>
+              <span>VRChat(Quest)</span>{" "}
+              <span className='bg-[#75DE73] w-3 h-3 inline-block rounded-full'></span>
+            </p>
+          }
+        />
+        <FormControlLabel
+          control={
+            <Checkbox
+              className='py-[3px]'
+              size='small'
+              onChange={handleChange}
+              name='PCVR'
+            />
+          }
+          label={
+            <p className='text-sm p-0 m-0 flex items-center gap-[6px]'>
+              <span>VRChat(PCVR)</span>{" "}
+              <span className='bg-[#3CD4F5] w-3 h-3 inline-block rounded-full'></span>
+            </p>
+          }
+        />
+        <FormControlLabel
+          control={
+            <Checkbox
+              className='py-[3px]'
+              size='small'
+              onChange={handleChange}
+              name='others'
+            />
+          }
+          label={
+            <p className='text-sm p-0 m-0 flex items-center gap-[6px]'>
+              <span>Others</span>{" "}
+            </p>
+          }
+        />
       </FormGroup>
     </div>
   );
