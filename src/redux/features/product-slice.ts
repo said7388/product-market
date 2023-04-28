@@ -2,7 +2,6 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import products from "../../assets/data/products.json";
 import { ProductState, ProductType } from "../../types";
 
-// The function below is called a thunk and allows us to perform async logic. It
 export const productSlice = createSlice({
   name: "product",
   initialState: {
@@ -16,12 +15,12 @@ export const productSlice = createSlice({
     },
   } as ProductState,
 
-  // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     updateProducts: (state, action: PayloadAction<ProductType[]>) => {
       state.products = action.payload;
     },
 
+    // update price filter data
     updatePriceFilter: (state, action: PayloadAction<string>) => {
       const { price } = state.filters;
 
@@ -30,6 +29,7 @@ export const productSlice = createSlice({
       }
     },
 
+    // update content filter data
     updateContentFilter: (state, action: PayloadAction<string>) => {
       const { content } = state.filters;
 
@@ -38,6 +38,7 @@ export const productSlice = createSlice({
       }
     },
 
+    // update polygon filter data
     updatePolygonFilter: (state, action: PayloadAction<string>) => {
       const { polygon } = state.filters;
 
@@ -46,6 +47,7 @@ export const productSlice = createSlice({
       }
     },
 
+    // update auto support filter data
     updateAutoSupportFilter: (state, action: PayloadAction<string>) => {
       const { autoSupport } = state.filters;
 
@@ -54,10 +56,12 @@ export const productSlice = createSlice({
       }
     },
 
+    // update category filter data
     updateCategoryFilter: (state, action: PayloadAction<string>) => {
       state.filters.category = action.payload;
     },
 
+    // remove price filter data
     updatePriceFilterRemove: (state, action: PayloadAction<string>) => {
       const { price } = state.filters;
       const index = price.indexOf(action.payload);
@@ -67,6 +71,7 @@ export const productSlice = createSlice({
       }
     },
 
+    // remove content filter data
     updateContentFilterRemove: (state, action: PayloadAction<string>) => {
       const { content } = state.filters;
       const index = content.indexOf(action.payload);
@@ -76,6 +81,7 @@ export const productSlice = createSlice({
       }
     },
 
+    // remove polygon filter data
     updatePolygonFilterRemove: (state, action: PayloadAction<string>) => {
       const { polygon } = state.filters;
       const index = polygon.indexOf(action.payload);
@@ -85,6 +91,7 @@ export const productSlice = createSlice({
       }
     },
 
+    // remove auto support filter data
     updateAutoSupportFilterRemove: (state, action: PayloadAction<string>) => {
       const { autoSupport } = state.filters;
       const index = autoSupport.indexOf(action.payload);

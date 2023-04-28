@@ -1,5 +1,4 @@
 // @flow strict
-
 import * as React from "react";
 import AutoUploadSupport from "../core-ui/filter/auto-upload-support";
 import CategoryFilter from "../core-ui/filter/category-filter";
