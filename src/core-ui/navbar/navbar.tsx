@@ -14,7 +14,7 @@ export default function Navbar({ handleDrawerToggle }: any) {
   return (
     <AppBar
       component='nav'
-      className='bg-gradient-to-r from-[#381E85] to-[#801F8B]'>
+      className='bg-gradient-to-r h-16 from-[#381E85] to-[#801F8B]'>
       <Toolbar className='grid grid-cols-2 justify-between'>
         <Box>
           <IconButton

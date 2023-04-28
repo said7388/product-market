@@ -18,6 +18,7 @@ export default function ProductCard({ product }: any) {
       <CardContent>
         <Typography>{product.title}</Typography>
         <Rating name='read-only' size='small' value={product.rating} readOnly />
+        <p>{product.price}</p>
       </CardContent>
       <CardActions>
         <Button size='small'>Share</Button>

@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.MuiListItemButton-root.Mui-selected {
+  background-color: transparent;
+  color: blue;
+}
+
+.MuiListItemButton-root {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 13px;
+}
+
+/* Hide scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  display: none;
+}
