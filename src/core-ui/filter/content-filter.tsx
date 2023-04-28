@@ -7,11 +7,22 @@ import {
   Typography,
 } from "@mui/material";
 import * as React from "react";
+import { useDispatch } from "react-redux";
+import {
+  updateContentFilter,
+  updateContentFilterRemove,
+} from "../../redux/features/product-slice";
 import { contentsFilter } from "../../utils/filter-data";
 
 function ContentFilter() {
+  const dispatch = useDispatch();
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log({ [event.target.name]: event.target.checked });
+    if (event.target.checked) {
+      dispatch(updateContentFilter(event.target.name));
+    } else {
+      dispatch(updateContentFilterRemove(event.target.name));
+    }
   };
 
   return (

@@ -17,4 +17,18 @@ export interface ProductType {
   polygon: number;
   autoUpload: string;
   type: string;
+  createdAt: string;
+}
+
+export interface Filters {
+  category: string;
+  price: string[];
+  content: string[];
+  polygon: string[];
+  autoSupport: string[];
+}
+
+export interface ProductState {
+  products: ProductType[];
+  filters: Filters;
 }

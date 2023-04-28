@@ -7,11 +7,22 @@ import {
   Typography,
 } from "@mui/material";
 import * as React from "react";
+import { useDispatch } from "react-redux";
+import {
+  updateAutoSupportFilter,
+  updateAutoSupportFilterRemove,
+} from "../../redux/features/product-slice";
 import { supportsFilter } from "../../utils/filter-data";
 
 function AutoUploadSupport() {
+  const dispatch = useDispatch();
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log({ [event.target.name]: event.target.checked });
+    if (event.target.checked) {
+      dispatch(updateAutoSupportFilter(event.target.name));
+    } else {
+      dispatch(updateAutoSupportFilterRemove(event.target.name));
+    }
   };
 
   return (

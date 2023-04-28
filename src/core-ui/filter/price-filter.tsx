@@ -7,8 +7,11 @@ import {
   Typography,
 } from "@mui/material";
 import * as React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { selectProducts } from "../../redux/features/product-slice";
+import { useDispatch } from "react-redux";
+import {
+  updatePriceFilter,
+  updatePriceFilterRemove,
+} from "../../redux/features/product-slice";
 import { ProductType } from "../../types";
 import { priceRanges } from "../../utils/filter-data";
 
@@ -39,25 +42,13 @@ function filterProductsByPrice(products: ProductType[], priceRanges: string[]) {
 }
 
 function PriceFilter() {
-  const [selectedPrice, setSelectedPrice] = React.useState<string[]>([]);
-  const products = useSelector(selectProducts);
   const dispatch = useDispatch();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!event.target.checked) {
-      setSelectedPrice(
-        selectedPrice.filter((price) => price !== event.target.name),
-      );
+    if (event.target.checked) {
+      dispatch(updatePriceFilter(event.target.name));
     } else {
-      const temp = JSON.parse(JSON.stringify(selectedPrice));
-      const filteredProducts = filterProductsByPrice(products, [
-        ...temp,
-        event.target.name,
-      ]);
-      // dispatch(updateProducts(filteredProducts));
-      // console.log(filteredProducts);
-      // console.log([...selectedPrice, event.target.name]);
-      setSelectedPrice([...temp, event.target.name]);
+      dispatch(updatePriceFilterRemove(event.target.name));
     }
   };
 
