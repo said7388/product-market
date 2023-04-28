@@ -20,6 +20,10 @@ export interface ProductType {
   createdAt: string;
 }
 
+export interface OrderType extends ProductType {
+  quantity: number;
+}
+
 export interface Filters {
   category: string;
   price: string[];
@@ -30,6 +34,10 @@ export interface Filters {
 
 export interface ProductState {
   products: ProductType[];
+}
+
+export interface CartState {
+  carts: OrderType[];
 }
 
 export interface FilterState {

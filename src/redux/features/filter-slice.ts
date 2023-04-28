@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { FilterState } from "../../types";
 
 export const filterSlice = createSlice({
-  name: "product",
+  name: "filter",
   initialState: {
     filters: {
       category: "",

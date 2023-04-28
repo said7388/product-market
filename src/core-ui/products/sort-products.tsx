@@ -89,6 +89,9 @@ function SortProducts() {
         labelId='demo-select-small-label'
         value={sort}
         label='Sort by featured'
+        MenuProps={{
+          style: { zIndex: 1 },
+        }}
         onChange={handleChange}>
         <MenuItem value='' disabled>
           Featured

@@ -7,10 +7,14 @@ import {
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
 import App from "./app";
 import "./index.css";
 import { store } from "./redux/store";
 import reportWebVitals from "./reportWebVitals";
+
+let persistor = persistStore(store);
 
 const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement!);
@@ -36,10 +40,12 @@ root.render(
   <React.StrictMode>
     <StyledEngineProvider injectFirst>
       <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <App />
-        </ThemeProvider>
+        <PersistGate loading={null} persistor={persistor}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <App />
+          </ThemeProvider>
+        </PersistGate>
       </Provider>
     </StyledEngineProvider>
   </React.StrictMode>,

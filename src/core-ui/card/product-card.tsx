@@ -11,6 +11,8 @@ import {
   MdIosShare,
   MdOutlineFavorite,
 } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/features/cart-slice";
 import { ProductType } from "../../types";
 
 export default function ProductCard({ product }: { product: ProductType }) {
@@ -18,6 +20,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
     null,
   );
   const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch();
 
   const handleClickShare = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -30,7 +33,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
   };
 
   const handleAddToCart = (product: ProductType) => {
-    console.log(product);
+    dispatch(addToCart(product));
   };
 
   return (
