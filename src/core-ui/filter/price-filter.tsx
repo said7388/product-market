@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import {
   updatePriceFilter,
   updatePriceFilterRemove,
-} from "../../redux/features/product-slice";
+} from "../../redux/features/filter-slice";
 import { ProductType } from "../../types";
 import { priceRanges } from "../../utils/filter-data";
 

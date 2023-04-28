@@ -29,9 +29,15 @@ export default function ProductCard({ product }: { product: ProductType }) {
     navigator.clipboard.writeText(link.toString());
   };
 
+  const handleAddToCart = (product: ProductType) => {
+    console.log(product);
+  };
+
   return (
     <Card className='relative hover:shadow-2xl transition-all duration-200'>
-      <Button className='absolute capitalize flex justify-center items-center gap-1 bg-[#444EF6] text-white rounded-lg top-2 right-2 p-1'>
+      <Button
+        className='absolute capitalize flex justify-center items-center gap-1 bg-[#444EF6] text-white rounded-lg top-2 right-2 p-1 hover:scale-110 transition-all duration-400'
+        onClick={() => handleAddToCart(product)}>
         <BsCart3 className='text-sm' />{" "}
         <span className='text-sm font-medium'>Add</span>
       </Button>

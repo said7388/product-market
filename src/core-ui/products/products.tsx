@@ -4,8 +4,8 @@ import { Pagination, Typography } from "@mui/material";
 import * as React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { selectFilters } from "../../redux/features/filter-slice";
 import {
-  selectFilters,
   selectProducts,
   updateProducts,
 } from "../../redux/features/product-slice";

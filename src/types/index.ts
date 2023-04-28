@@ -30,5 +30,8 @@ export interface Filters {
 
 export interface ProductState {
   products: ProductType[];
+}
+
+export interface FilterState {
   filters: Filters;
 }

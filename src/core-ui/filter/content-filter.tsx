@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import {
   updateContentFilter,
   updateContentFilterRemove,
-} from "../../redux/features/product-slice";
+} from "../../redux/features/filter-slice";
 
 function ContentFilter() {
   const dispatch = useDispatch();

@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   selectCategoryFilter,
   updateCategoryFilter,
-} from "../../redux/features/product-slice";
+} from "../../redux/features/filter-slice";
 
 function CategoryFilter() {
   const [open, setOpen] = React.useState(false);

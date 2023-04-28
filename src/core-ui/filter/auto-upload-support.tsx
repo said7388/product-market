@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import {
   updateAutoSupportFilter,
   updateAutoSupportFilterRemove,
-} from "../../redux/features/product-slice";
+} from "../../redux/features/filter-slice";
 import { supportsFilter } from "../../utils/filter-data";
 
 function AutoUploadSupport() {

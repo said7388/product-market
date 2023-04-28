@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import {
   updatePolygonFilter,
   updatePolygonFilterRemove,
-} from "../../redux/features/product-slice";
+} from "../../redux/features/filter-slice";
 import { polygonRanges } from "../../utils/filter-data";
 
 function PolygonFilter() {
