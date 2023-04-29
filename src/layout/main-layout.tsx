@@ -5,7 +5,7 @@ import Header from "./header";
 
 function MainLayout({ children }: any) {
   return (
-    <div>
+    <div className='font-sans'>
       <Header />
       <Toolbar />
       <div className=''>{children}</div>
