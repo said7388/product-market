@@ -10,8 +10,13 @@ import { FcBusinessman } from "react-icons/fc";
 import { HiMenu, HiOutlineBell } from "react-icons/hi";
 import { IoMdCart } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { removeFromCart, selectCarts } from "../../redux/features/cart-slice";
+import { selectFilters } from "../../redux/features/filter-slice";
+import { updateProducts } from "../../redux/features/product-slice";
 import { OrderType } from "../../types";
+import products from "../../utils/data/products.json";
+import { filterProducts } from "../../utils/filter-products";
 import CardCart from "../card/cart-card";
 
 export default function Navbar({ handleDrawerToggle }: any) {
@@ -21,11 +26,19 @@ export default function Navbar({ handleDrawerToggle }: any) {
   const [openOrder, setOpenOrder] = React.useState(false);
   const carts = useSelector(selectCarts);
   const dispatch = useDispatch();
+  const filters = useSelector(selectFilters);
+
+  const handleSearchProduct = (e: { target: { value: string } }) => {
+    const matchedProducts = products.filter((product) => {
+      return product.title.toLowerCase().includes(e.target.value.toLowerCase());
+    });
+    const filteredProducts = filterProducts(matchedProducts, filters);
+    dispatch(updateProducts(filteredProducts));
+  };
 
   const handleClickCart = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
     setOpenOrder(!openOrder);
-    console.log("clicked");
   };
 
   const removeOrderFromCart = (id: number) => {
@@ -47,10 +60,12 @@ export default function Navbar({ handleDrawerToggle }: any) {
               sx={{ mr: 2, display: { sm: "none" } }}>
               <HiMenu />
             </IconButton>
-            <img
-              className='cursor-pointer hidden sm:block flex-grow w-32 '
-              src='https://i.ibb.co/Yf7XwyQ/logo1.png'
-            />
+            <Link to='/'>
+              <img
+                className='cursor-pointer hidden sm:block flex-grow w-32 '
+                src='https://i.ibb.co/Yf7XwyQ/logo1.png'
+              />
+            </Link>
           </Box>
           <Box className='hidden sm:flex items-center justify-between'>
             <Paper
@@ -62,6 +77,7 @@ export default function Navbar({ handleDrawerToggle }: any) {
                 width: 420,
               }}>
               <InputBase
+                onChange={handleSearchProduct}
                 sx={{ ml: 1, flex: 1 }}
                 placeholder='Search Avatar by name.'
                 inputProps={{ "aria-label": "Search Avatar" }}

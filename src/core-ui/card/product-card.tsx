@@ -12,6 +12,7 @@ import {
   MdOutlineFavorite,
 } from "react-icons/md";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { addToCart } from "../../redux/features/cart-slice";
 import { ProductType } from "../../types";
 
@@ -51,7 +52,9 @@ export default function ProductCard({ product }: { product: ProductType }) {
       />
       <CardContent className='p-2'>
         <Typography className='text-base m-0 font-medium'>
-          {product.title}
+          <Link to={`/${product.id}`} className='no-underline text-[#000000]	'>
+            {product.title}
+          </Link>
         </Typography>
         <div className='flex justify-between items-center'>
           <div className='flex gap-3 m-0 items-center'>
@@ -93,14 +96,14 @@ export default function ProductCard({ product }: { product: ProductType }) {
           <p className='m-0 text-sm'>{product.type} Only</p>
         </div>
         <div className='flex gap-2 m-0 items-end justify-between self-end'>
-          {product.autoUpload === "Supported" ? (
+          {product.autoUpload === "supported" ? (
             <p className='m-0 text-[13px] font-medium'>
               Auto upload service ready, you can use this avatar within 24
               hours.
             </p>
           ) : (
             <p className='m-0 text-[13px] font-medium  '>
-              Auto upload service not ready, you can use this avatar within 24
+              Auto upload service not ready, It will be ready soon!
             </p>
           )}
           <Button

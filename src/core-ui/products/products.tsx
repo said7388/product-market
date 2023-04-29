@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFilters } from "../../redux/features/filter-slice";
 import {
+  selectProductTitle,
   selectProducts,
   updateProducts,
 } from "../../redux/features/product-slice";
@@ -18,6 +19,7 @@ import SortProducts from "./sort-products";
 function Products() {
   const [page, setPage] = React.useState(1);
   const products = useSelector(selectProducts);
+  const productTitle = useSelector(selectProductTitle);
   const filters = useSelector(selectFilters);
   const dispatch = useDispatch();
 
@@ -34,7 +36,7 @@ function Products() {
     <div className='p-2 px-3 sm:px-5 w-full'>
       <div className=' min-w-full flex justify-between items-center mb-5'>
         <Typography variant='h5' gutterBottom>
-          All Items
+          {productTitle}
         </Typography>
         <SortProducts />
       </div>

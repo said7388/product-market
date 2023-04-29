@@ -1,3 +1,5 @@
+import { CategoryType } from "../types";
+
 export const supportsFilter = [
   {
     label: "Supported",
@@ -6,6 +8,40 @@ export const supportsFilter = [
   {
     label: "Unsupported",
     value: "unsupported",
+  },
+];
+
+export const categories: CategoryType[] = [
+  {
+    value: "fullAvatar",
+    label: "Full Avatar",
+    children: [
+      {
+        value: "human",
+        label: "Human Based",
+        children: [
+          { value: "male", label: "Male" },
+          { value: "female", label: "Female" },
+          { value: "unisex", label: "Unisex" },
+        ],
+      },
+      {
+        value: "animal",
+        label: "Animal & Mythical Based",
+      },
+      {
+        value: "robot",
+        label: "Robot Based",
+      },
+      {
+        value: "otherAvatar",
+        label: "Others",
+      },
+    ],
+  },
+  {
+    value: "others",
+    label: "Others",
   },
 ];
 

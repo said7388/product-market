@@ -3,10 +3,24 @@ import { Filters, ProductType } from "../types";
 export function filterProducts(products: ProductType[], filters: Filters) {
   return products.filter((product) => {
     // Filter by category
-    if (filters.category && product.category !== filters.category) {
+    if (
+      filters.category &&
+      filters.category !== "fullAvatar" &&
+      filters.category !== "human" &&
+      product.category !== filters.category
+    ) {
       return false;
     }
 
+    if (filters.category === "human") {
+      if (
+        product.category !== "male" &&
+        product.category !== "female" &&
+        product.category !== "unisex"
+      ) {
+        return false;
+      }
+    }
     // Filter by price
     if (filters.price && filters.price.length > 0) {
       const priceRange = getPriceRange(product.price);

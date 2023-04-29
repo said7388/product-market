@@ -34,6 +34,7 @@ export interface Filters {
 
 export interface ProductState {
   products: ProductType[];
+  productTitle: string;
 }
 
 export interface CartState {
@@ -43,3 +44,9 @@ export interface CartState {
 export interface FilterState {
   filters: Filters;
 }
+
+export type CategoryType = {
+  value: string;
+  label: string;
+  children?: CategoryType[];
+};
