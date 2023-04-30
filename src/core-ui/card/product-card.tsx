@@ -33,14 +33,16 @@ export default function ProductCard({ product }: { product: ProductType }) {
     setOpen(!open);
   };
 
-  const handleCopyToClipboard = (link: number) => {
+  const handleCopyToClipboard = (id: number) => {
     setOpen(!open);
-    navigator.clipboard.writeText(link.toString());
+    navigator.clipboard.writeText(`https://vr-avatars.netlify.app/${id}`);
   };
 
   const handleAddToCart = (product: ProductType) => {
     dispatch(addToCart(product));
   };
+
+  console.log(process.env.PUBLIC_URL);
 
   return (
     <Card className='relative hover:shadow-2xl transition-all duration-200'>

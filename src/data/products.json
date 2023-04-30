@@ -471,7 +471,7 @@
     "category": "animal",
     "content": "PCVR",
     "polygon": 58000,
-    "autoUpload": "Supported",
+    "autoUpload": "supported",
     "type": "Mobile",
     "createdAt": "2021-06-27T09:52:00.443Z",
     "images": [
@@ -494,7 +494,7 @@
     "category": "animal",
     "content": "PCVR",
     "polygon": 73000,
-    "autoUpload": "Supported",
+    "autoUpload": "supported",
     "type": "Mobile",
     "createdAt": "2022-09-20T19:13:05.443Z",
     "images": [
@@ -517,7 +517,7 @@
     "category": "unisex",
     "content": "Quest",
     "polygon": 92000,
-    "autoUpload": "Supported",
+    "autoUpload": "supported",
     "type": "PC",
     "createdAt": "2020-10-02T18:57:27.638Z",
     "images": [
@@ -540,7 +540,7 @@
     "category": "unisex",
     "content": "PCVR",
     "polygon": 69000,
-    "autoUpload": "Supported",
+    "autoUpload": "supported",
     "type": "Mobile",
     "createdAt": "2022-09-07T00:36:14.207Z",
     "images": [
