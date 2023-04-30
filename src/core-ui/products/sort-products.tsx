@@ -9,12 +9,12 @@ import {
 } from "@mui/material";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { sortProducts } from "../../data/sort-data";
 import {
   selectProducts,
   updateProducts,
 } from "../../redux/features/product-slice";
 import { ProductType, SortingType } from "../../types";
-import { sortProducts } from "../../utils/sort-data";
 
 function SortProducts() {
   const products = useSelector(selectProducts);

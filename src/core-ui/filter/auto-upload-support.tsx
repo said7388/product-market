@@ -8,11 +8,11 @@ import {
 } from "@mui/material";
 import * as React from "react";
 import { useDispatch } from "react-redux";
+import { supportsFilter } from "../../data/filter-data";
 import {
   updateAutoSupportFilter,
   updateAutoSupportFilterRemove,
 } from "../../redux/features/filter-slice";
-import { supportsFilter } from "../../utils/filter-data";
 
 function AutoUploadSupport() {
   const dispatch = useDispatch();

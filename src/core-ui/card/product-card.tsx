@@ -5,15 +5,15 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-import { BsCart3, BsLink45Deg } from "react-icons/bs";
+import { BsCart3, BsCartCheck, BsLink45Deg } from "react-icons/bs";
 import {
   MdFavoriteBorder,
   MdIosShare,
   MdOutlineFavorite,
 } from "react-icons/md";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { addToCart } from "../../redux/features/cart-slice";
+import { addToCart, selectCarts } from "../../redux/features/cart-slice";
 import { ProductType } from "../../types";
 
 export default function ProductCard({ product }: { product: ProductType }) {
@@ -22,6 +22,11 @@ export default function ProductCard({ product }: { product: ProductType }) {
   );
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
+  const carts = useSelector(selectCarts);
+
+  const findProductInCart = (id: number) => {
+    return carts.find((cart) => cart.id === id);
+  };
 
   const handleClickShare = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -42,7 +47,11 @@ export default function ProductCard({ product }: { product: ProductType }) {
       <Button
         className='absolute capitalize flex justify-center items-center gap-1 bg-[#444EF6] text-white rounded-lg top-2 right-2 p-1 hover:scale-110 transition-all duration-400'
         onClick={() => handleAddToCart(product)}>
-        <BsCart3 className='text-sm' />{" "}
+        {findProductInCart(product.id) ? (
+          <BsCartCheck className='text-sm' />
+        ) : (
+          <BsCart3 className='text-sm' />
+        )}
         <span className='text-sm font-medium'>Add</span>
       </Button>
       <CardMedia

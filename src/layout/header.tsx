@@ -4,10 +4,6 @@ import Navbar from "../core-ui/navbar/navbar";
 import SideNavbar from "../core-ui/navbar/side-navbar";
 
 interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window?: () => Window;
 }
 

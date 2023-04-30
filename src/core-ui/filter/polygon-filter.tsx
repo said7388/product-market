@@ -8,11 +8,11 @@ import {
 } from "@mui/material";
 import * as React from "react";
 import { useDispatch } from "react-redux";
+import { polygonRanges } from "../../data/filter-data";
 import {
   updatePolygonFilter,
   updatePolygonFilterRemove,
 } from "../../redux/features/filter-slice";
-import { polygonRanges } from "../../utils/filter-data";
 
 function PolygonFilter() {
   const dispatch = useDispatch();

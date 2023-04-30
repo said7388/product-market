@@ -7,13 +7,13 @@ import {
 } from "@mui/material";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { categories } from "../../data/filter-data";
 import {
   selectCategoryFilter,
   updateCategoryFilter,
 } from "../../redux/features/filter-slice";
 import { updateProductTitle } from "../../redux/features/product-slice";
 import { CategoryType } from "../../types";
-import { categories } from "../../utils/filter-data";
 
 function CategoryFilter() {
   const dispatch = useDispatch();

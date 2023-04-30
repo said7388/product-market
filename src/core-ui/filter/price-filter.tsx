@@ -8,12 +8,12 @@ import {
 } from "@mui/material";
 import * as React from "react";
 import { useDispatch } from "react-redux";
+import { priceRanges } from "../../data/filter-data";
 import {
   updatePriceFilter,
   updatePriceFilterRemove,
 } from "../../redux/features/filter-slice";
 import { ProductType } from "../../types";
-import { priceRanges } from "../../utils/filter-data";
 
 function filterProductsByPrice(products: ProductType[], priceRanges: string[]) {
   return products.filter((product: ProductType) => {
