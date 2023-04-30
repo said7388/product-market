@@ -25,3 +25,5 @@ yarn start
 ```
 
 After start the server you should able to visit site on `localhost:3000`.
+
+### ✨ To complete this test I have taken help from Google search.
