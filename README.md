@@ -1,5 +1,9 @@
 # VR Avatar MarketPlace (React)
 
+## Live Preview
+
+[Live preview here](https://vr-avatars.netlify.app/)
+
 ## How to run
 
 Clone this repository in your local machine:
