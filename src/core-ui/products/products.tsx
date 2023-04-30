@@ -4,6 +4,7 @@ import { Pagination, Typography } from "@mui/material";
 import * as React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import productsArray from "../../data/products.json";
 import { selectFilters } from "../../redux/features/filter-slice";
 import {
   selectProductTitle,
@@ -11,7 +12,6 @@ import {
   updateProducts,
 } from "../../redux/features/product-slice";
 import { ProductType } from "../../types";
-import productsArray from "../../utils/data/products.json";
 import { filterProducts } from "../../utils/filter-products";
 import ProductCard from "../card/product-card";
 import SortProducts from "./sort-products";

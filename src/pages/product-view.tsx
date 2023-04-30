@@ -4,9 +4,9 @@ import * as React from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import ProductViewUI from "../core-ui/product-view/product-view-ui";
+import products from "../data/products.json";
 import { addToCart } from "../redux/features/cart-slice";
 import { ProductType } from "../types";
-import products from "../utils/data/products.json";
 
 function ProductView() {
   const params = useParams();

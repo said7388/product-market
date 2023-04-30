@@ -11,11 +11,11 @@ import { HiMenu, HiOutlineBell } from "react-icons/hi";
 import { IoMdCart } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import products from "../../data/products.json";
 import { removeFromCart, selectCarts } from "../../redux/features/cart-slice";
 import { selectFilters } from "../../redux/features/filter-slice";
 import { updateProducts } from "../../redux/features/product-slice";
 import { OrderType } from "../../types";
-import products from "../../utils/data/products.json";
 import { filterProducts } from "../../utils/filter-products";
 import CardCart from "../card/cart-card";
 
