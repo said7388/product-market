@@ -18,6 +18,10 @@ export interface ProductType {
   autoUpload: string;
   type: string;
   createdAt: string;
+  images: {
+    img: string;
+    featured?: boolean;
+  }[];
 }
 
 export interface OrderType extends ProductType {

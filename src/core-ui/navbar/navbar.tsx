@@ -60,12 +60,17 @@ export default function Navbar({ handleDrawerToggle }: any) {
               sx={{ mr: 2, display: { sm: "none" } }}>
               <HiMenu />
             </IconButton>
-            <Link to='/'>
-              <img
-                className='cursor-pointer hidden sm:block flex-grow w-32 '
-                src='https://i.ibb.co/Yf7XwyQ/logo1.png'
-              />
-            </Link>
+            <div className='flex items-center gap-5'>
+              <Link to='/'>
+                <img
+                  className='cursor-pointer hidden sm:block flex-grow w-32 '
+                  src='https://i.ibb.co/Yf7XwyQ/logo1.png'
+                />
+              </Link>
+              <Link className='text-white text-xl ' to='/'>
+                Go to Marketplace
+              </Link>
+            </div>
           </Box>
           <Box className='hidden sm:flex items-center justify-between'>
             <Paper
@@ -123,7 +128,10 @@ export default function Navbar({ handleDrawerToggle }: any) {
                 />
               ))}
               <div className='mt-5 text-center'>
-                <Button variant='contained' size='small'>
+                <Button
+                  variant='contained'
+                  size='small'
+                  className=' bg-[#4a1f87] text-white'>
                   Checkout
                 </Button>
               </div>
