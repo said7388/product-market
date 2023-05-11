@@ -14,7 +14,13 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { addToCart, selectCarts } from "../../redux/features/cart-slice";
+import {
+  addToCart,
+  addToWishlist,
+  removeFromWishlist,
+  selectCarts,
+  selectWishlist,
+} from "../../redux/features/cart-slice";
 import { ProductType } from "../../types";
 
 export default function ProductCard({ product }: { product: ProductType }) {
@@ -25,9 +31,20 @@ export default function ProductCard({ product }: { product: ProductType }) {
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
   const carts = useSelector(selectCarts);
+  const wishList = useSelector(selectWishlist);
+
+  console.log(wishList);
 
   const findProductInCart = (id: number) => {
     return carts.find((cart) => cart.id === id);
+  };
+
+  const findProductInWishList = (id: number) => {
+    const isFound = wishList.find((wish) => wish.id === id);
+    if (isFound) {
+      return true;
+    }
+    return false;
   };
 
   const handleClickShare = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -108,6 +125,13 @@ export default function ProductCard({ product }: { product: ProductType }) {
           <Checkbox
             size='medium'
             icon={<MdFavoriteBorder className='text-[#6A6A6A] text-xl' />}
+            checked={findProductInWishList(product.id)}
+            onChange={(e) =>
+              e.target.checked
+                ? dispatch(addToWishlist(product)) &&
+                  toast.success("Added to wishlist successfully!")
+                : dispatch(removeFromWishlist(product.id))
+            }
             checkedIcon={
               <MdOutlineFavorite className='text-xl text-[#F84F4F]' />
             }

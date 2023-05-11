@@ -15,7 +15,7 @@ import { TfiMinus, TfiPlus } from "react-icons/tfi";
 import InnerImageZoom from "react-inner-image-zoom";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { addToCart } from "../../redux/features/cart-slice";
+import { addToCart, addToWishlist } from "../../redux/features/cart-slice";
 import { ProductType } from "../../types";
 import ProductDetailsFooter from "./product-details-footer";
 
@@ -158,6 +158,10 @@ function ProductViewUI({ product }: PropsType) {
                 <Button
                   variant='outlined'
                   color='secondary'
+                  onClick={() =>
+                    dispatch(addToWishlist(product)) &&
+                    toast.success("Added to wishlist successfully!")
+                  }
                   className='hover:bg-[#9C27B0] hover:text-white text-[#4a1f87] border-[#4a1f87] transition-all duration-700 '>
                   <BsHeart className='text-base me-1' />
                   Add to wishlist

@@ -134,7 +134,7 @@ function ProductDetailsFooter({ product }: { product: ProductType }) {
               <p className='my-2 italic text-gray-500'>By: Alex Xu</p>
               <p className='flex items-center my-2 gap-1 text-green-700'>
                 <MdVerified className='text-lg' />
-                <p className='m-0'>Verified Purchase</p>
+                <span className='m-0'>Verified Purchase</span>
               </p>
             </div>
             <p className='my-2'>
@@ -166,7 +166,7 @@ function ProductDetailsFooter({ product }: { product: ProductType }) {
               <p className='my-2 italic text-gray-500'>By: Alex Xu</p>
               <p className='flex items-center my-2 gap-1 text-green-700'>
                 <MdVerified className='text-lg' />
-                <p className='m-0'>Verified Purchase</p>
+                <span className='m-0'>Verified Purchase</span>
               </p>
             </div>
             <p className='my-2'>
@@ -196,7 +196,7 @@ function ProductDetailsFooter({ product }: { product: ProductType }) {
               <p className='my-2 italic text-gray-500'>By: Alex Xu</p>
               <p className='flex items-center my-2 gap-1 text-green-700'>
                 <MdVerified className='text-lg' />
-                <p className='m-0'>Verified Purchase</p>
+                <span className='m-0'>Verified Purchase</span>
               </p>
             </div>
             <p className='my-2'>

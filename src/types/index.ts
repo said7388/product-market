@@ -43,6 +43,7 @@ export interface ProductState {
 
 export interface CartState {
   carts: OrderType[];
+  wishlist: ProductType[];
 }
 
 export interface FilterState {
