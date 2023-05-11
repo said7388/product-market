@@ -51,7 +51,8 @@ function SideNavbar({
             <img
               className='cursor-pointer w-32 '
               src='https://i.ibb.co/HTDq23s/logo2.png'
-              width='120px'
+              width={128}
+              height={32}
             />
             <Button onClick={handleDrawerToggle} className='text-3xl'>
               <IoCloseSharp className='text-3xl text-slate-800' />

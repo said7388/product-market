@@ -34,6 +34,7 @@ function ContentFilter() {
           control={
             <Checkbox
               className='py-[3px]'
+              color='secondary'
               size='small'
               onChange={handleChange}
               name='Quest'
@@ -50,6 +51,7 @@ function ContentFilter() {
           control={
             <Checkbox
               className='py-[3px]'
+              color='secondary'
               size='small'
               onChange={handleChange}
               name='PCVR'
@@ -66,6 +68,7 @@ function ContentFilter() {
           control={
             <Checkbox
               className='py-[3px]'
+              color='secondary'
               size='small'
               onChange={handleChange}
               name='others'

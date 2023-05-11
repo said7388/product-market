@@ -37,6 +37,7 @@ function AutoUploadSupport() {
             control={
               <Checkbox
                 className='py-[3px]'
+                color='secondary'
                 size='small'
                 onChange={handleChange}
                 name={content.value}

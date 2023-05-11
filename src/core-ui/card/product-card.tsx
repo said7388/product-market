@@ -45,9 +45,9 @@ export default function ProductCard({ product }: { product: ProductType }) {
   console.log(process.env.PUBLIC_URL);
 
   return (
-    <Card className='relative hover:shadow-2xl transition-all duration-200'>
+    <Card className='relative shadow-[0px_2px_2px_rgba(0,0,0,0.1)] transition-all duration-200'>
       <Button
-        className='absolute capitalize flex justify-center items-center gap-1 bg-[#444EF6] text-white rounded-lg top-2 right-2 p-1 hover:scale-110 transition-all duration-400'
+        className='absolute capitalize flex justify-center items-center gap-1 bg-[#9C27B0] text-white rounded-lg top-2 right-2 p-1 hover:scale-110 transition-all duration-400'
         onClick={() => handleAddToCart(product)}>
         {findProductInCart(product.id) ? (
           <BsCartCheck className='text-sm' />
@@ -63,7 +63,9 @@ export default function ProductCard({ product }: { product: ProductType }) {
       />
       <CardContent className='p-2'>
         <Typography className='text-base m-0 font-medium'>
-          <Link to={`/${product.id}`} className='no-underline text-[#000000]	'>
+          <Link
+            to={`/${product.id}`}
+            className='no-underline text-[#000000] hover:text-[#9C27B0]	'>
             {product.title}
           </Link>
         </Typography>

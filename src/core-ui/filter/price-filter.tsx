@@ -64,6 +64,7 @@ function PriceFilter() {
             control={
               <Checkbox
                 className='py-[3px]'
+                color='secondary'
                 size='small'
                 onChange={handleChange}
                 name={range.value}

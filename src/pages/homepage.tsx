@@ -11,7 +11,7 @@ function Homepage() {
   return (
     <>
       <div className='flex flex-col sm:flex-row max-h-[calc(100vh-64px)]'>
-        <div className='sm:min-w-[256px] px-5 overflow-y-auto mb-8'>
+        <div className='sm:min-w-[256px] h-[calc(100vh-64px)] shadow-md px-5 overflow-y-auto pb-8 bg-white'>
           <CategoryFilter />
           <ContentFilter />
           <PriceFilter />

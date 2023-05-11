@@ -54,6 +54,7 @@ function Products() {
             onChange={(_, p) => setPage(p)}
             count={Math.ceil(products.length / 12)}
             shape='rounded'
+            color='secondary'
           />
         )}
       </div>
