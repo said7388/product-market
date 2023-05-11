@@ -53,8 +53,8 @@ export default function Navbar({ handleDrawerToggle }: any) {
       <AppBar
         component='nav'
         className='bg-gradient-to-r h-16 from-[#381E85] to-[#801F8B]'>
-        <Toolbar className='grid grid-cols-2 justify-between'>
-          <Box>
+        <Toolbar className='grid md:grid-cols-2 justify-between'>
+          <Box className='flex items-center justify-between'>
             <IconButton
               color='inherit'
               aria-label='open drawer'

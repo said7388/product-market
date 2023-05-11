@@ -29,12 +29,13 @@ function ProductDetailsFooter({ product }: { product: ProductType }) {
 
   return (
     <>
-      <Paper className='my-5 h-[600px] w-full'>
+      <Paper className='my-5 h-[600px] overflow-auto w-full'>
         <Box sx={{ width: "100%" }}>
           <Tabs
             value={value}
             onChange={handleChange}
             textColor='secondary'
+            className='overflow-auto'
             indicatorColor='secondary'>
             <Tab value='specification' label='Specification' />
             <Tab value='description' label='Description' />

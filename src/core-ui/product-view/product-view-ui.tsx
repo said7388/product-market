@@ -38,10 +38,10 @@ function ProductViewUI({ product }: PropsType) {
     <Container className='w-full h-full my-6'>
       <Paper>
         <Grid container>
-          <Grid item xs={5} className='w-full'>
+          <Grid item xs={12} md={5} className='w-full'>
             <InnerImageZoom
               src={thumbnail}
-              className='w-full h-[450px] object-cover'
+              className='w-full h-[350px] md:h-[450px] object-cover'
               zoomType='hover'
             />
             <div className='grid grid-cols-4 gap-1 mt-4'>
@@ -56,7 +56,7 @@ function ProductViewUI({ product }: PropsType) {
               ))}
             </div>
           </Grid>
-          <Grid item xs={7}>
+          <Grid item xs={12} md={7} className='w-full'>
             <div className='mb-5 p-5'>
               <h1 className='text-2xl md:text-3xl text-[#9C27B0] ragular-title capitalize font-medium'>
                 {product?.title}
@@ -145,7 +145,7 @@ function ProductViewUI({ product }: PropsType) {
                   onClick={() => product && handleAddToCart(product)}
                   variant='outlined'
                   color='secondary'
-                  className='py-2.5 hover:bg-[#9C27B0] hover:text-white text-[#4a1f87] border-[#4a1f87] transition-all duration-700 '>
+                  className='sm:py-2.5 hover:bg-[#9C27B0] hover:text-white text-[#4a1f87] border-[#4a1f87] transition-all duration-700 '>
                   <BsCartPlus className='text-lg me-1' />
                   Add to Cart
                 </Button>

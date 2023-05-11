@@ -36,11 +36,11 @@ export default function ProductCard({ product }: { product: ProductType }) {
   console.log(wishList);
 
   const findProductInCart = (id: number) => {
-    return carts.find((cart) => cart.id === id);
+    return carts?.find((cart) => cart.id === id);
   };
 
   const findProductInWishList = (id: number) => {
-    const isFound = wishList.find((wish) => wish.id === id);
+    const isFound = wishList?.find((wish) => wish.id === id);
     if (isFound) {
       return true;
     }
