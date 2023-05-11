@@ -39,7 +39,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
   };
 
   const handleAddToCart = (product: ProductType) => {
-    dispatch(addToCart(product));
+    dispatch(addToCart({ product, quantity: 1 }));
   };
 
   console.log(process.env.PUBLIC_URL);

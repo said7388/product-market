@@ -31,7 +31,7 @@ function CardCart({
           <p className='m-0 p-0 text-[10px]'>Quantity: {product.quantity}</p>
           <div className='flex items-center gap-1'>
             <Button
-              onClick={() => dispatch(addToCart(product))}
+              onClick={() => dispatch(addToCart({ product, quantity: 1 }))}
               className='min-w-fit'>
               <IoAdd />
             </Button>
@@ -44,7 +44,7 @@ function CardCart({
         </div>
         <div className='flex items-center justify-between mb-0'>
           <p className='text-sm font-semibold m-0 py-[6px]'>
-            $ {product.price}
+            $ {product.price * product.quantity}
           </p>
           <Button
             onClick={() => removeOrderFromCart(product.id)}
