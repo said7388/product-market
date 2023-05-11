@@ -7,6 +7,8 @@ import {
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import App from "./app";
@@ -47,6 +49,7 @@ root.render(
           </ThemeProvider>
         </PersistGate>
       </Provider>
+      <ToastContainer />
     </StyledEngineProvider>
   </React.StrictMode>,
 );

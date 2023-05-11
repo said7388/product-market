@@ -13,10 +13,12 @@ import {
 } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { addToCart, selectCarts } from "../../redux/features/cart-slice";
 import { ProductType } from "../../types";
 
 export default function ProductCard({ product }: { product: ProductType }) {
+  const [thumbnail, setThumbnail] = React.useState(product.image);
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null,
   );
@@ -40,9 +42,8 @@ export default function ProductCard({ product }: { product: ProductType }) {
 
   const handleAddToCart = (product: ProductType) => {
     dispatch(addToCart({ product, quantity: 1 }));
+    toast.success("Added to cart successfully!");
   };
-
-  console.log(process.env.PUBLIC_URL);
 
   return (
     <Card className='relative shadow-[0px_2px_2px_rgba(0,0,0,0.1)] transition-all duration-200'>
@@ -58,10 +59,32 @@ export default function ProductCard({ product }: { product: ProductType }) {
       </Button>
       <CardMedia
         sx={{ height: 260, minWidth: 260 }}
-        image={product.image}
+        image={thumbnail}
         title={product.title}
       />
       <CardContent className='p-2'>
+        <div className='flex justify-center items-center gap-1 my-1'>
+          <Button
+            onClick={() => setThumbnail(product.images[0].img)}
+            className='min-w-fit p-0'>
+            <span className='bg-[#E7414D] w-[14px] h-[14px] rounded-full'></span>
+          </Button>
+          <Button
+            onClick={() => setThumbnail(product.images[1].img)}
+            className='min-w-fit p-0'>
+            <span className='bg-[#4B1F87] w-[14px] h-[14px] rounded-full'></span>
+          </Button>
+          <Button
+            onClick={() => setThumbnail(product.images[2].img)}
+            className='min-w-fit p-0'>
+            <span className='bg-amber-600 w-[14px] h-[14px] rounded-full'></span>
+          </Button>
+          <Button
+            onClick={() => setThumbnail(product.images[3].img)}
+            className='min-w-fit p-0'>
+            <span className='bg-[#DA004D] w-[14px] h-[14px] rounded-full'></span>
+          </Button>
+        </div>
         <Typography className='text-base m-0 font-medium'>
           <Link
             to={`/${product.id}`}

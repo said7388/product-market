@@ -10,7 +10,7 @@ import { FcBusinessman } from "react-icons/fc";
 import { HiMenu, HiOutlineBell } from "react-icons/hi";
 import { IoMdCart } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import products from "../../data/products.json";
 import { removeFromCart, selectCarts } from "../../redux/features/cart-slice";
 import { selectFilters } from "../../redux/features/filter-slice";
@@ -23,6 +23,9 @@ export default function Navbar({ handleDrawerToggle }: any) {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null,
   );
+  const location = useLocation();
+  const { pathname } = location;
+  const notHome = pathname.split("/")[1];
   const [openOrder, setOpenOrder] = React.useState(false);
   const carts = useSelector(selectCarts);
   const dispatch = useDispatch();
@@ -60,6 +63,7 @@ export default function Navbar({ handleDrawerToggle }: any) {
               sx={{ mr: 2, display: { sm: "none" } }}>
               <HiMenu />
             </IconButton>
+
             <div className='flex items-center gap-5'>
               <Link to='/'>
                 <img
@@ -67,9 +71,11 @@ export default function Navbar({ handleDrawerToggle }: any) {
                   src='https://i.ibb.co/Yf7XwyQ/logo1.png'
                 />
               </Link>
-              <Link className='text-white text-xl ' to='/'>
-                Go to Marketplace
-              </Link>
+              {notHome && (
+                <Link className='text-white text-xl ' to='/'>
+                  Go to Marketplace
+                </Link>
+              )}
             </div>
           </Box>
           <Box className='hidden sm:flex items-center justify-between'>

@@ -10,6 +10,8 @@ function ProductView() {
   const params = useParams();
   const id = params.id || "";
 
+  // console.log(id);
+
   const product = products.find(
     (product: ProductType) => product.id === parseInt(id),
   );

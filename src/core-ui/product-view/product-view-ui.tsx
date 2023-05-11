@@ -14,6 +14,7 @@ import { BsCartPlus, BsHeart } from "react-icons/bs";
 import { TfiMinus, TfiPlus } from "react-icons/tfi";
 import InnerImageZoom from "react-inner-image-zoom";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { addToCart } from "../../redux/features/cart-slice";
 import { ProductType } from "../../types";
 import ProductDetailsFooter from "./product-details-footer";
@@ -30,6 +31,7 @@ function ProductViewUI({ product }: PropsType) {
   const handleAddToCart = (product: ProductType) => {
     dispatch(addToCart({ product, quantity }));
     setQuantity(0);
+    toast.success("Added to cart successfully!");
   };
 
   return (
@@ -164,8 +166,8 @@ function ProductViewUI({ product }: PropsType) {
             </div>
           </Grid>
         </Grid>
-        <ProductDetailsFooter product={product} />
       </Paper>
+      <ProductDetailsFooter product={product} />
     </Container>
   );
 }
